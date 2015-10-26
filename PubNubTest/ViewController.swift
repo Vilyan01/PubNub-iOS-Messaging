@@ -51,6 +51,10 @@ extension ViewController : PNObjectEventListener {
     }
     
     func client(client: PubNub!, didReceiveMessage message: PNMessageResult!) {
+        /*
+            Note:
+            This is hardcoded as another user right now, in the future you will want to find a way to figure out who the sender actually is.  I have already done this on my other project so if you want to wait a few days I'll update it with how I did it, but it's already 12:30 AM and I is tired from trying to figure this out all day so deal with it.
+        */
         let msg = JSQMessage(senderId: "test", displayName: "test", text: message.data.message as! String)
         self.messages.append(msg)
         self.finishReceivingMessage()
